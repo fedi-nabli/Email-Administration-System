@@ -134,5 +134,40 @@ public class Email {
     System.out.println("ALTERNATE EMAIL: " + this.alter_email);
   }
 
+  // Store in File
+  public void store_file() {
+    try {
+      System.out.println("Storing...");
+      FileWriter file = new FileWriter(System.getProperty("user.dir") + "\\Info.txt");
+      file.write("******************************************\n");
+      file.append("First Name: " + this.first_name + "\n");
+      file.append("Last Name: " + this.last_name + "\n");
+      file.append("Department: " + this.dept + "\n");
+      file.append("Email: " + this.email + "\n");
+      file.append("Password: " + this.password + "\n");
+      file.append("Capacity: " + this.mailCapacity + "\n");
+      file.append("Alternate Email: " + this.alter_email + "\n");
+      file.append("******************************************");
+      file.close();
+      System.out.println("File stored.");
+    } catch (Exception e) {
+      System.out.println(e);
+    }
+  }
 
+  // Read file data
+  public void read_file() {
+    try {
+      BufferedReader file = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\Info.txt"));
+      String line = file.readLine();
+      while (line != null) {
+        System.out.println(line);
+        line = file.readLine();
+      }
+      file.close();
+    } catch (Exception e) {
+      System.out.println(e);
+    }
+    System.out.println();
+  }
 }

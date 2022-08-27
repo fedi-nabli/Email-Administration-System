@@ -35,11 +35,11 @@ public class EmailApp {
           break;
 
         case 5:
-          System.out.println("Still being developed");
+          email.store_file();
           break;
 
         case 6:
-          System.out.println("Still being developed!");
+          email.read_file();
           break;
 
         case 7:
