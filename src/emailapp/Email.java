@@ -38,7 +38,7 @@ public class Email {
 
   // Asking for dept
   private String set_dept() {
-    System.out.println("Department codes\n 1 for Sales \n2 for Development \n3 for Accounting \n0 for None");
+    System.out.println("Department codes\n1 for Sales \n2 for Development \n3 for Accounting \n0 for None");
     boolean flag = false;
 
     do {
@@ -133,4 +133,6 @@ public class Email {
     System.out.println("MAILBOX CAPACITY: " + this.mailCapacity + "Mb");
     System.out.println("ALTERNATE EMAIL: " + this.alter_email);
   }
+
+
 }
