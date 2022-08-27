@@ -20,6 +20,15 @@ public class Email {
     this.first_name = first_name;
     this.last_name = last_name;
     System.out.println("New Employee: " + this.first_name + " " + this.last_name);
+
+    // Call a method asking for the department - return the department
+    this.dept = this.set_dept();
+
+    // Call a method that returns a random password
+    this.password = this.generate_password(8);
+
+    // Combine elements to generate an email
+    this.email = this.generate_email();
   }
 
   // Generating Email
@@ -95,8 +104,33 @@ public class Email {
         flag = true;
         System.out.println("Password changed option cancelled!");
       } else {
-        System.out.println("Enter valid choice");
+        System.out.println("**ENTER A VALID CHOICE**");
       }
     } while (!flag);
+  }
+
+  // Set mailbox capacity method
+  public void set_mailbox_capacity() {
+    System.out.println("Current capacity: " + this.mailCapacity + "Mb");
+    System.out.println("Enter new mailbox capacity: ");
+    this.mailCapacity = s.nextInt();
+    System.out.println("New mailbox capacity: " + this.mailCapacity + "Mb");
+  }
+
+  // Set the alternate email
+  public void set_alternate_email() {
+    System.out.println("Enter new alternate email: ");
+    this.alter_email = s.next();
+    System.out.println("ALTERNATE EMAIL SET SUCCESSFULLY!");
+  }
+
+  // Display user information
+  public void get_info() {
+    System.out.println("NAME: " + this.first_name + " " + this.last_name);
+    System.out.println("DEPARTMENT: " + this.dept);
+    System.out.println("EMAIL: " + this.email);
+    System.out.println("PASSWORD:" + this.password);
+    System.out.println("MAILBOX CAPACITY: " + this.mailCapacity + "Mb");
+    System.out.println("ALTERNATE EMAIL: " + this.alter_email);
   }
 }
