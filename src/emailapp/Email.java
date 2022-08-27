@@ -1,5 +1,6 @@
 package emailapp;
-import java.util.*;
+import java.util.Scanner;
+import java.util.Random;
 import java.io.*;
 
 public class Email {
@@ -48,10 +49,54 @@ public class Email {
           return "None";
 
         default:
-          System.out.println("Invalid choice, please choose it again");
+          System.out.println("**INVALID CHOICE**");
       }
     } while (!flag);
 
     return null;
+  }
+
+  // Generate random password method
+  private String generate_password(int length) {
+    Random r = new Random();
+    String Capital_characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    String lower_characters = "abcdefghijklmnopqrstuvwxyz";
+    String numbers = "0123456789";
+    String symbols = "!@#$%&?";
+
+    String values = Capital_characters + lower_characters + numbers + symbols;
+
+    String password = "";
+    for (int i = 0; i < length; i++) {
+      password = password + values.charAt(r.nextInt(values.length()));
+    }
+
+    return password;
+  }
+
+  // Change password method
+  public void set_password() {
+    boolean flag = false;
+    do {
+      System.out.println("Do you want to change your password? (Y/N)");
+      char choice = s.next().charAt(0);
+      if (choice == 'Y' || choice == 'y') {
+        flag = true;
+        System.out.println("Enter current password: ");
+        String temp = s.next();
+        if (temp.equals(this.password)) {
+          System.out.println("Enter new password: ");
+          this.password = s.next();
+          System.out.println("Password changed successfully!");
+        } else {
+          System.out.println("Incorrect password");
+        }
+      } else if (choice == 'N' || choice == 'n') {
+        flag = true;
+        System.out.println("Password changed option cancelled!");
+      } else {
+        System.out.println("Enter valid choice");
+      }
+    } while (!flag);
   }
 }
